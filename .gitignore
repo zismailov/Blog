@@ -22,3 +22,6 @@
 # Ignore uploaded test images.
 /public/uploads
 .envrc
+
+# Ignore application configuration
+/config/application.yml
