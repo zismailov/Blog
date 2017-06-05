@@ -117,12 +117,6 @@ GEM
     haml (5.0.1)
       temple (>= 0.8.0)
       tilt
-    haml-rails (1.0.0)
-      actionpack (>= 4.0.1)
-      activesupport (>= 4.0.1)
-      haml (>= 4.0.6, < 6.0)
-      html2haml (>= 1.0.1)
-      railties (>= 4.0.1)
     high_voltage (3.0.0)
     html2haml (2.2.0)
       erubis (~> 2.7.0)
@@ -316,7 +310,6 @@ DEPENDENCIES
   guard-bundler
   guard-rails
   guard-rspec
-  haml-rails
   high_voltage
   html2haml
   jbuilder (~> 2.5)
