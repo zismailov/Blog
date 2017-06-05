@@ -3,8 +3,8 @@ module Features
     def sign_up_with(email, password, confirmation)
       visit new_user_registration_path
       fill_in 'Email', with: email
-      fill_in 'Password', with: password
-      fill_in 'Password confirmation', :with => confirmation
+      fill_in 'Password', with: password, match: :prefer_exact
+      fill_in 'Password confirmation', with: confirmation, match: :prefer_exact
       click_button 'Sign up'
     end
 
