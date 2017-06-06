@@ -23,7 +23,7 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
 
-    if current_user == @post.user
+    if current_user != @post.user
       render :show
     end
   end

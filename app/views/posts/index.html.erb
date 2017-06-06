@@ -1,0 +1,6 @@
+<% @posts.each do |post| %>
+  <h1>
+    <%= link_to h(post.title), post %>
+  </h1>
+  <%= button_to 'Edit post', edit_post_path(post), :class => 'btn btn-danger', method: :get %>
+<% end %>

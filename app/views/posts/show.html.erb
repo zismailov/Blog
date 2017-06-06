@@ -1,0 +1,11 @@
+<h1>Title:</h1>
+<p>
+  <%= h(@post.title) %>
+</p>
+<h1>Content:</h1>
+<p>
+  <%= @post.content %>
+</p>
+<%= link_to 'Posts', posts_path, :class => 'btn btn-primary' %>
+<%= link_to 'Edit post', edit_post_path(@post), :class => 'btn btn-warning' %>
+<%= link_to 'Delete post', post_path(@post), :class => 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -1,0 +1,9 @@
+<h1>Edit post</h1>
+<%= simple_form_for @post do |f| %>
+  <div class="form-inputs">
+    <%= f.input :title, placeholder: 'Enter title' %>
+    <%= f.input :content, as: :text, placeholder: 'Content' %>
+  </div>
+  <%= f.button :submit, 'Update post' %>
+<% end %>
+<%= link_to 'Cancel', post_path(@post), :class => 'btn btn-danger' %>
