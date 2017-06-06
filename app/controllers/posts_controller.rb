@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+
   def index
     @posts = Post.all
   end
@@ -14,7 +16,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post, notice: 'Post successfully created.'
     else
-      render 'edit'
+      render :new
     end
   end
 
@@ -22,7 +24,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     if current_user == @post.user
-      render 'show'
+      render :show
     end
   end
 
@@ -32,7 +34,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to @post, notice: 'Post successfully updated.'
     else
-      render 'edit'
+      render :edit
     end
   end
 
