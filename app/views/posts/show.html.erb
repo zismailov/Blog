@@ -9,3 +9,18 @@
 <%= link_to 'Posts', posts_path, :class => 'btn btn-primary' %>
 <%= link_to 'Edit post', edit_post_path(@post), :class => 'btn btn-warning' %>
 <%= link_to 'Delete post', post_path(@post), :class => 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<h1>Comments:</h1>
+<% @post.comments.each do |comment| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= time_ago_in_words(comment.created_at) %>
+      <%= "by " + comment.user.email %>
+      <%= link_to '', post_comment_path(@post, comment), method: :delete, class:'glyphicon glyphicon-remove', id: 'comment-delete' %>
+    </div>
+    <div class="panel-body">
+      <%= comment.content %>
+    </div>
+  </div>
+<% end %>
+<%= render :partial => '/comments/form' %>

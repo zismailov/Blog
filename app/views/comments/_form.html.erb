@@ -1,0 +1,8 @@
+<h2>Add comment
+  <%= simple_form_for [@post, @post.comments.build] do |f| %>
+    <div class="form-inputs">
+      <%= f.input :content, as: :text, placeholder: 'Content' %>
+      <%= f.button :submit, 'Create comment' %>
+    </div>
+  <% end %>
+</h2>
