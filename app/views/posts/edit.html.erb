@@ -5,5 +5,5 @@
     <%= f.input :content, as: :text, placeholder: 'Content' %>
   </div>
   <%= f.button :submit, 'Update post' %>
+  <%= link_to 'Cancel', post_path(@post), class: 'btn btn-danger' %>
 <% end %>
-<%= link_to 'Cancel', post_path(@post), :class => 'btn btn-danger' %>
