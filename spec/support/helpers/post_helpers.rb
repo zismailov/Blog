@@ -6,5 +6,10 @@ module Features
       fill_in 'Content', with: content, match: :prefer_exact
       click_button 'Create post'
     end
+
+    def delete_post(post_id)
+      visit post_path(post_id)
+      click_link 'Delete post'
+    end
   end
 end
