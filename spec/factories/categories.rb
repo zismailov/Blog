@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :category do
-    name "MyStringCat"
+    name { Faker::Name.title } 
   end
 end

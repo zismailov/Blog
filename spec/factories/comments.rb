@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :comment do
-    content "MyText Comment"
+    content { Faker::Lorem.sentence }
     post
     user
   end
