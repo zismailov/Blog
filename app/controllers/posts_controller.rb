@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :check_permissions, only: [:edit, :destroy]
 
   def index
     @posts = Post.all
@@ -22,10 +23,6 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-
-    if current_user != @post.user
-      render :show
-    end
   end
 
   def update
@@ -56,5 +53,13 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :content, :category_ids=>[])
+  end
+
+  def check_permissions
+    @post = Post.find(params[:id])
+    if current_user.admin? and current_user != @post.user
+    else
+      redirect_to post_path(@post), alert: 'You can\'t edit not your own posts.'
+    end
   end
 end

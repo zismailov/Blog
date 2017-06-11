@@ -22,9 +22,12 @@ class CommentsController < ApplicationController
   def destroy
     @post = Post.find(params[:post_id])
 
-    @comment = @post.comments.find(params[:id])
-    @comment.destroy
-    redirect_to @post, notice: 'Comment successfully deleted.'
+    if current_user.admin? or current_user == @comment.user
+      @comment.destroy
+      redirect_to @post, notice: 'Comment successfully deleted.'
+    else
+      redirect_to @post, alert: 'You can\'t delete this comment.'
+    end
   end
 
   private
