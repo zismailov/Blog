@@ -32,8 +32,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def check_admin
-    if current_user and current_user.admin?
-    else
+    unless current_user&.admin?
       render text: '403 - Forbidden.', status: '403'
     end
   end
