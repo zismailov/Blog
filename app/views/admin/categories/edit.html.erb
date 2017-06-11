@@ -1,13 +1,14 @@
-<h1>Create new Post</h1>
+<h1>Edit post</h1>
 <%= simple_form_for @post do |f| %>
   <div class="form-inputs">
     <%= f.input :title, placeholder: 'Enter title' %>
     <%= f.input :content, as: :text, placeholder: 'Content' %>
     <% Category.all.each do |category| %>
-      <%= check_box_tag "post[category_ids][]", category.id %>
+      <%= check_box_tag "post[category_ids][]", category.id, @post.category_ids.include?(category.id) %>
       <%= category.name %>
       <br/>
     <% end %>
   </div>
-  <%= f.button :submit, 'Create post' %>
+  <%= f.button :submit, 'Update post' %>
+  <%= link_to 'Cancel', post_path(@post), class: 'btn btn-danger' %>
 <% end %>

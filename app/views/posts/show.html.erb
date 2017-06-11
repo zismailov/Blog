@@ -1,15 +1,21 @@
-<h1>Title:</h1>
-<p>
-  <%= h(@post.title) %>
-</p>
-<h1>Content:</h1>
-<p>
-  <%= @post.content %>
-</p>
+<br/>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <%= h(@post.title) %>
+  </div>
+  <div class="panel-body">
+    <p>
+      <%= @post.content %>
+    </p>
+    <br/>
+    <% @post.categories.each do |category| %>
+      <%= ('#' + category.name).to_s %>
+    <% end %>
+  </div>
+</div>
 <%= link_to 'Posts', posts_path, :class => 'btn btn-primary' %>
 <%= link_to 'Edit post', edit_post_path(@post), :class => 'btn btn-warning' %>
 <%= link_to 'Delete post', post_path(@post), :class => 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
-
 <h1>Comments:</h1>
 <% @post.comments.each do |comment| %>
   <div class="panel panel-default">

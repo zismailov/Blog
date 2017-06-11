@@ -1,0 +1,7 @@
+<h2>New category</h2>
+<%= simple_form_for Category.new, url: {controller: :categories, action: :create} do |f| %>
+  <div class="form_inputs">
+    <%= f.input :name, as: :text, placeholder: 'Name' %>
+    <%= f.button :submit, 'Create category' %>
+  </div>
+<% end %>

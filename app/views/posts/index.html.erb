@@ -1,10 +1,102 @@
-<% @posts.each do |post| %>
-  <h1>
-    <%= link_to h(post.title), post %>
-  </h1>
-  <%= link_to 'Edit post', edit_post_path(post), class: 'btn btn-danger', method: :get %>
-  <%= link_to 'Comments', post_path(post), class: 'btn btn-default', method: :get %>
-<% end %>
-<br/>
-<br/>
-<%= link_to 'New post', new_post_path, class: 'btn btn-default' %>
+<!--////////////////////////////////////////////////////
+-->
+<div class="container">
+  <div class="row">
+    <!-- Blog Entries Column
+    -->
+    <div class="col-md-8">
+      <h1 class="page-header">
+        Blog
+        <small>Best Blog in the World!</small>
+      </h1>
+      <!-- posts
+      -->
+      <% @posts.each do |post| %>
+        <h2>
+          <%= link_to h(post.title), post %>
+        </h2>
+        <p>
+          by #{post.user.email}
+        </p>
+        <p>
+          <span class="glyphicon glyphicon-time">
+            Posted  #{time_ago_in_words(post.created_at)}
+          </span>
+        </p>
+        <!--%img.img-responsive{alt: "", src: "http://placehold.it/900x300"}
+        -->
+        <%= truncate(post.content, length: 100, separator: ' ') { link_to ('Read more <span class="glyphicon glyphicon-chevron-right"></span>').html_safe, post, class: 'btn btn-default' } %>
+      <% end %>
+      <!-- Pagination
+      -->
+      <ul class="pager">
+        <li class="previous">
+          <a href="#">Prev</a>
+        </li>
+        <li class="next">
+          <a href="#">Next</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <!-- Search block
+      -->
+      <div class="well">
+        <h4>Search post</h4>
+        <div class="input-group">
+          <input class="form-control" type="text">/</input>
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </span>
+        </div>
+      </div>
+      <!-- Categories block
+      -->
+      <div class="well">
+        <h4>Categories</h4>
+        <div class="row">
+          <div class="col-lg-6">
+            <ul class="list-unstyled">
+              <li>
+                <a>Category 1</a>
+              </li>
+              <li>
+                <a>Category 2</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <ul class="list-unstyled">
+              <li>
+                <a>Category 1</a>
+              </li>
+              <li>
+                <a>Category 2</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- New post block
+      -->
+      <div class="well">
+        <h4>Create your onw post</h4>
+        <p>
+          <%= link_to 'New post', new_post_path, class: 'btn btn-default' %>
+        </p>
+      </div>
+    </div>
+    <hr/>
+    <!-- Footer
+    -->
+    <footer>
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright Best Blog in the World! 2016</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
