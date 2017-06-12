@@ -11,4 +11,16 @@ feature 'Delete categories' do
     expect(page).to have_content 'Category successfully deleted.'
   end
 
+  scenario 'user can\'t delete categories' do
+    user = FactoryGirl.create(:user)
+    signin(user.email, user.password)
+    visit admin_categories_path
+    expect(page).to have_content 'Forbidden'
+  end
+
+  scenario 'visitor can\'t delete categories' do
+    visit admin_categories_path
+    expect(page).to have_content 'Forbidden'
+  end
+
 end
