@@ -9,7 +9,10 @@
   <% end %>
   <p>
     <span class="glyphicon glyphicon-time"></span>
-    <%= " Posted on #{post.created_at.localtime.strftime("%d/%m/%Y at %I:%M%p")} by #{post.user.email}" %>
+    <%= " Posted on #{post.created_at.localtime.strftime("%d/%m/%Y at %I:%M%p")} by" %>
+    <b>
+      <%= post.user.name %>
+    </b>
     <!-- image
     -->
   </p>

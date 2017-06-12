@@ -8,6 +8,7 @@
     <%= f.input :email, required: true, error: false %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), error: false %>
     <%= f.input :password_confirmation, required: true, error: false %>
+    <%= f.input :avatar, as: :file %>
   </div>
 
   <div class="form-actions">
