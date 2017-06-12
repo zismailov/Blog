@@ -3,7 +3,11 @@ class PostsController < ApplicationController
   before_action :check_permissions, only: [:edit, :destroy]
 
   def index
-    @posts = Post.all
+    if params[:category_id].present?
+      @posts = Category.find(params[:category_id]).posts
+    else
+      @posts = Post.all
+    end
   end
 
   def new
