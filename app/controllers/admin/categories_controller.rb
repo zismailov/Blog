@@ -33,7 +33,7 @@ class Admin::CategoriesController < ApplicationController
 
   def check_admin
     unless current_user&.admin?
-      render text: '403 - Forbidden.', status: '403'
+      render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
     end
   end
 end
