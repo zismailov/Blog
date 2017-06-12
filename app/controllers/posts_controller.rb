@@ -57,8 +57,7 @@ class PostsController < ApplicationController
 
   def check_permissions
     @post = Post.find(params[:id])
-    if current_user.admin? and current_user != @post.user
-    else
+    unless current_user.admin? or current_user == @post.user
       redirect_to post_path(@post), alert: 'You can\'t edit not your own posts.'
     end
   end
