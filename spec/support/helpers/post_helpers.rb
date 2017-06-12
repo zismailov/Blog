@@ -7,8 +7,8 @@ module Features
       click_button 'Create post'
     end
 
-    def delete_post(post_id)
-      visit post_path(post_id)
+    def delete_post(post)
+      visit post_path(post)
       click_link 'Delete post'
     end
   end
