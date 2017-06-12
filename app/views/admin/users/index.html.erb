@@ -1,0 +1,27 @@
+<br/>
+<%= button_to 'New user', new_admin_user_path, method: :get, class: 'btn btn-default' %>
+<table class="table">
+  <thead>
+    <th>id</th>
+    <th>name</th>
+    <th>email</th>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td>
+          <%= link_to user.id, admin_user_path(user) %>
+        </td>
+        <td>
+          <%= user.name %>
+        </td>
+        <td>
+          <%= user.email %>
+        </td>
+        <td>
+          <%= link_to '', admin_user_path(user), method: :delete, class: 'glyphicon glyphicon-remove' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

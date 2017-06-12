@@ -1,0 +1,85 @@
+<h3>User info</h3>
+<table class="table">
+  <thead>
+    <th>id</th>
+    <th>username</th>
+    <th>email</th>
+    <th>last sign in</th>
+    <th>role</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <%= @user.id %>
+      </td>
+      <td>
+        <%= @user.name %>
+      </td>
+      <td>
+        <%= @user.email %>
+      </td>
+      <td>
+        <%= @user.last_sign_in_at.localtime.strftime("%m/%d/%Y at %I:%M%p") %>
+      </td>
+      <td>
+        <%= @user.role %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>Posts:</h3>
+<table class="table">
+  <thead>
+    <th>post_id</th>
+    <th>title</th>
+    <th>created_at</th>
+    <th>updated_at</th>
+  </thead>
+  <tbody>
+    <% @user.posts.each do |post| %>
+      <tr>
+        <td>
+          <%= link_to post.id, post_path(post.id) %>
+        </td>
+        <td>
+          <%= post.title %>
+        </td>
+        <th>
+          <%= post.created_at.localtime.strftime("%m/%d/%Y at %I:%M%p") %>
+        </th>
+        <th>
+          <%= post.updated_at.localtime.strftime("%m/%d/%Y at %I:%M%p") %>
+        </th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<h3>Comments:</h3>
+<table class="table">
+  <thead>
+    <th>comment_id</th>
+    <th>content</th>
+    <th>post_id</th>
+    <th>created_at</th>
+  </thead>
+  <tbody>
+    <% @user.comments.each do |comment| %>
+      <tr>
+        <td>
+          <%= comment.id %>
+        </td>
+        <td>
+          <%= comment.content  %>
+        </td>
+        <td>
+          <%= comment.post_id %>
+        </td>
+        <td>
+          <%= comment.created_at.localtime.strftime("%m/%d/%Y at %I:%M%p") %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<h3>Actions:</h3>
+<%= link_to 'DELETE THIS USER', admin_user_path(@user), method: :delete %>

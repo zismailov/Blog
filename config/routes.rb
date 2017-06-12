@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   end
   namespace :admin do
     resources :categories, only: [:index, :create, :destroy]
-    resources :users, only: [:index, :edit, :update, :destroy]
-    resources :posts, only: [:index, :create, :update, :destroy]
+    resources :users, only: [:index, :new, :create, :show, :destroy]
   end
   root to: 'posts#index'
   devise_for :users

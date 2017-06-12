@@ -1,0 +1,9 @@
+<%= simple_form_for @user, url: admin_users_path, method: :post do |f| %>
+  <%= f.input :name, placeholder: 'Name' %>
+  <%= f.input :email, placeholder: 'Email' %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+  <%= f.input :role, collection: User.roles.keys, prompt: 'Select role' %>
+  <br/>
+  <%= f.button :submit, 'Create user' %>
+<% end %>
