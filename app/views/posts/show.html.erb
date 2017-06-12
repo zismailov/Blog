@@ -1,38 +1,26 @@
-<br/>
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <%= h(@post.title) %>
-  </div>
-  <div class="panel-body">
-    <p>
-      <%= @post.content %>
-    </p>
-    <br/>
-    <% @post.categories.each do |category| %>
-      <%= ('#' + category.name).to_s %>
-    <% end %>
-  </div>
-</div>
-<%= link_to 'Posts', posts_path, :class => 'btn btn-primary' %>
-<%= link_to 'Edit post', edit_post_path(@post), :class => 'btn btn-warning' %>
-<%= link_to 'Delete post', post_path(@post), :class => 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
-<h1>Comments:</h1>
-<% if @post.comments.empty? %>
-  <p>
-    <%= "No comments yet... so you can be the first!" %>
-  </p>
-<% else %>
-  <% @post.comments.each do |comment| %>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <%= time_ago_in_words(comment.created_at) %>
-        <%= "by " + comment.user.email %>
-        <%= link_to '', post_comment_path(@post, comment), method: :delete, class:'glyphicon glyphicon-remove', id: 'comment-delete' %>
+<div class='container'>
+  <div class='row'>
+    <!-- Blog Post Content Column -->
+    <div class='col-lg-8'>
+      <!-- Blog Post -->
+      <hr>
+      <br>
+      <div class='well'>
+        <h4>Leave a Comment:</h4>
       </div>
-      <div class="panel-body">
-        <%= comment.content %>
+      <hr>
+    </div>
+    <!-- Blog Sidebar Widgets Column -->
+    <div class='col-md-4'>
+    </div>
+  </div>
+  <hr>
+  <!-- Footer -->
+  <footer>
+    <div class='row'>
+      <div class='col-lg-12'>
+        <p>Copyright © Your Website 2017</p>
       </div>
     </div>
-  <% end %>
-<% end %>
-<%= render :partial => '/comments/form' %>
+  </footer>
+</div>

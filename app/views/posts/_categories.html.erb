@@ -1,0 +1,16 @@
+<div class="well">
+  <h4>Categories</h4>
+  <div class="row">
+    <div class="col-lg-6">
+      <ul class="list-unstyled">
+        <% Category.all.each do |category| %>
+          <li>
+            <a href="#">
+              <%= category.name %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

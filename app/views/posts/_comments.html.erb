@@ -1,0 +1,26 @@
+<div class="comments">
+  <% if @post.comments.empty? %>
+    <p>
+      <%= 'No comments yet... so you can be the first! :)' %>
+    </p>
+    <br/>
+  <% else %>
+    <% @post.comments.each do |comment| %>
+      <div class="media">
+        <a class="pull-left" href="#">
+          <img class="media-object" src="http://placehold.it/64x64"/>
+        </a>
+        <div class="media-body">
+          <h5 class="media-heading glyphicon glyphicon-time"></h5>
+          <%= " #{comment.created_at.localtime.strftime("%d/%m/%Y at %I:%M%p")} by #{comment.user.email}" %>
+          <% if current_user&.admin? or current_user == comment.user %>
+            <%= link_to '', post_comment_path(@post, comment), method: :delete, class: 'glyphicon glyphicon-remove' %>
+          <% end %>
+          <p>
+            <%= comment.content %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

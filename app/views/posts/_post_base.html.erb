@@ -1,0 +1,9 @@
+<h1>
+  <%= h(@post.title) %>
+</h1>
+<div class="glyphicon glyphicon-time"></div>
+<%= "Posted on #{@post.created_at.localtime.strftime("%d/%m/%Y at %I:%M%p")} by #{@post.user.email}" %>
+<hr/>
+<p class="lead">
+  <%= @post.content %>
+</p>

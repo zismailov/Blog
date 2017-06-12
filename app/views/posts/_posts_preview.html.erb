@@ -1,0 +1,17 @@
+<% @posts.each do |post| %>
+  <h2>
+    <%= link_to h(post.title), post %>
+  </h2>
+  <% post.categories.each do |category| %>
+    <span>
+      <%= "##{category.name}" %>
+    </span>
+  <% end %>
+  <p>
+    <span class="glyphicon glyphicon-time"></span>
+    <%= " Posted on #{post.created_at.localtime.strftime("%d/%m/%Y at %I:%M%p")} by #{post.user.email}" %>
+    <!-- image
+    -->
+  </p>
+  <%= truncate(post.content, length:100, separator: ' ') { link_to ('Read more <span class="glyphicon glyphicon-chevron-right"></span>').html_safe, post, class: 'btn btn-default' } %>
+<% end %>

@@ -1,0 +1,5 @@
+<hr/>
+<% if current_user&.admin? or current_user == @post.user %>
+  <%= link_to 'Edit post', edit_post_path(@post), class: 'btn btn-warning' %>
+  <%= link_to 'Delete post', post_path(@post), method: :delete, class: 'btn btn-danger' %>
+<% end %>
