@@ -1,26 +1,22 @@
-<div class='container'>
-  <div class='row'>
-    <!-- Blog Post Content Column -->
-    <div class='col-lg-8'>
-      <!-- Blog Post -->
-      <hr>
-      <br>
-      <div class='well'>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <%= render partial: 'post_actions' %>
+      <%= render partial: 'post_base' %>
+      <hr/>
+      <%= render partial: 'comments' %>
+      <br/>
+      <div class="well">
         <h4>Leave a Comment:</h4>
+        <%= render partial: '/comments/form' %>
       </div>
-      <hr>
+      <hr/>
     </div>
-    <!-- Blog Sidebar Widgets Column -->
-    <div class='col-md-4'>
+    <!-- Blog Sidebar Widgets Column-->
+    <div class="col-md-4">
+      <%= render partial: 'search' %>
+      <%= render partial: 'categories' %>
+      <%= render partial: 'side_widget' %>
     </div>
   </div>
-  <hr>
-  <!-- Footer -->
-  <footer>
-    <div class='row'>
-      <div class='col-lg-12'>
-        <p>Copyright © Your Website 2017</p>
-      </div>
-    </div>
-  </footer>
 </div>
