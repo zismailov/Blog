@@ -119,15 +119,7 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    haml (5.0.1)
-      temple (>= 0.8.0)
-      tilt
     high_voltage (3.0.0)
-    html2haml (2.2.0)
-      erubis (~> 2.7.0)
-      haml (>= 4.0, < 6)
-      nokogiri (>= 1.6.0)
-      ruby_parser (~> 3.5)
     i18n (0.8.4)
     interception (0.5)
     jbuilder (2.6.4)
@@ -206,7 +198,6 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
-    rails_layout (1.0.41)
     railties (5.1.1)
       actionpack (= 5.1.1)
       activesupport (= 5.1.1)
@@ -216,8 +207,6 @@ GEM
     rainbow (2.2.2)
       rake
     rake (12.0.0)
-    rb-fchange (0.0.6)
-      ffi
     rb-fsevent (0.9.8)
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
@@ -254,8 +243,6 @@ GEM
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
     ruby_dep (1.5.0)
-    ruby_parser (3.9.0)
-      sexp_processor (~> 4.1)
     rubyzip (1.2.1)
     sass (3.4.24)
     sass-rails (5.0.6)
@@ -268,7 +255,6 @@ GEM
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
-    sexp_processor (4.9.0)
     shellany (0.0.1)
     simple_form (3.5.0)
       actionpack (> 4, < 5.2)
@@ -288,7 +274,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    temple (0.8.0)
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.7)
@@ -323,7 +308,6 @@ DEPENDENCIES
   guard-rails
   guard-rspec
   high_voltage
-  html2haml
   jbuilder (~> 2.5)
   jquery-rails
   launchy
@@ -335,10 +319,6 @@ DEPENDENCIES
   pry-rescue
   puma (~> 3.7)
   rails (~> 5.1.1)
-  rails_layout
-  rb-fchange
-  rb-fsevent
-  rb-inotify
   rspec-rails
   rubocop
   sass-rails (~> 5.0)
